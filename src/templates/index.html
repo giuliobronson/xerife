@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Xerife</title>
+</head>
+<body>
+    <div>
+        <img id="video" src="{{ url_for('stream') }}" alt="Live video feed">
+        <table border="1" id="students">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Nome</th>
+                    <th>Presente</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in students.items() %}
+                    <tr id="{{ key }}">
+                        <td>{{ key }}</td>
+                        <td>{{ value.name }}</td>
+                        <td>{{ value.present }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
+
