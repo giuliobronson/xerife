@@ -1,1 +1,1 @@
-# xerife-api
+# xerife
